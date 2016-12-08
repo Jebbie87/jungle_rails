@@ -1,0 +1,20 @@
+<div class="row">
+<% @order.line_items.each do |item| %>
+  <div class="col-sm-4">
+<%= image_tag item.product.image.tiny, class: 'main-img' %>
+  </div>
+
+  <div class="col-sm-8">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= item.product.name %></dd>
+      <dt>Description</dt>
+      <dd><%= item.product.description %></dd>
+      <dt>Quantity</dt>
+      <dd><%= item.quantity %></dd>
+      <dt>Total line cost</dt>
+      <dd><%= number_to_currency (item.item_price_cents * item.quantity).to_f / 100, unit: '$' %></dd>
+    </dl>
+  </div>
+</div>
+<% end %>
