@@ -1,6 +1,11 @@
-<%= form_for :user do |f| %>
+<header>
+  <h1>Register page!</h1>
+</header>
 
+ <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
 
+<%= form_for :users do |f| %>
 
   <div class="form-group">
     <%= f.label :first_name %>
@@ -22,5 +27,7 @@
     <%= f.text_field :password %>
   </div>
 
-  <%= f.submit 'Register index', class: 'btn btn-primary' %>
+  <%= f.submit 'Register new', class: 'btn btn-primary' %>
 <% end %>
+</div>
+</div>

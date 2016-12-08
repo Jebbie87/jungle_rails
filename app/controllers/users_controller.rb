@@ -8,9 +8,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to :root, notice: 'User created!'
+      session[:user_id] = @user.id
+      redirect_to :root
     else
-      render :new
+      redirect_to new_user_url
     end
   end
 
@@ -20,7 +21,8 @@ private
       :first_name,
       :last_name,
       :email,
-      :password
+      :password,
+      :password_confirmation
     )
   end
 end
