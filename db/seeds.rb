@@ -140,34 +140,51 @@ user1 = User.create!({
   first_name: 'Jebbie',
   last_name: 'Chang',
   email: 'jebbie@chang.com',
-  password_digest: 'jskdjkdshfjkdshfkjsfd'
+  password: 'test'
 })
 
 user2 = User.create!({
   first_name: 'Jeff',
   last_name: 'Chang',
   email: 'jeff@chang.com',
-  password_digest: 'j3hkjh2kj5h'
+  password: 'test'
 })
 
 ## Reviews
 
 Review.destroy_all
 
-prod3.reviews.create({
-  user_id: 1,
-  description: 'This bookshelf be awesome',
+user1.reviews.create({
+  product_id: 1,
+  description: 'This shirt be awesome',
   rating: 5
 })
 
-prod2.reviews.create({
-  user_id: 1,
+user1.reviews.create({
+  product_id: 1,
+  rating: 1
+})
+
+user2.reviews.create({
+  product_id: 1,
+  description: 'So cool. So blue. So comfy',
+  rating: 5
+})
+
+user2.reviews.create({
+  product_id: 1,
+  description: 'Wooooooo. This gucci',
+  rating: 2
+  })
+
+user1.reviews.create({
+  product_id: 2,
   description: 'This skateboard is the best hipster item for anyone out there in the world!',
   rating: 4
 })
 
-prod1.reviews.create({
-  user_id: 2,
+user2.reviews.create({
+  product_id: 2,
   rating: 1
 })
 

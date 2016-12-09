@@ -3,6 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
 
   validates :rating, presence: true, numericality: true, inclusion: { in: 0..5 }
+
 end
 
 # create_table :reviews do |t|

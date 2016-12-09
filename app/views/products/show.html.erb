@@ -25,7 +25,18 @@
         </dl>
       </div>
     </div>
-
   </article>
-
+  <br>
+  <br>
+  <div class="user-comments" style="float:right;">
+  <h3>Comments</h3>
+  <ul>
+  <% @product.reviews.each do |r| %>
+    <% if r.description != nil %>
+      <li><%= r.description %></li>
+    <% end %>
+  <% end %>
+  </ul>
+  </div>
+  <!-- <p>Comment: <%= @product.reviews %></p> -->
 </section>
