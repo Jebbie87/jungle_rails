@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session unless current_user
   end
 
+  def basic_auth
+    http_basic_authenticate_with name: ENV['admin_username'], password: ENV['admin_password'] # r
+  end
+
   private
 
   def cart
