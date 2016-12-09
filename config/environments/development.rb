@@ -36,6 +36,12 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #         api_key: 'pubkey-1e4f52f134553276c68bbd07e06669da',
+  #         domain: 'sandbox3a7303edc035451b940c8b1bbc7ae8e9.mailgun.org'
+  # }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
