@@ -52,11 +52,10 @@ class OrdersController < ApplicationController
         )
       end
     end
-
-    if order.save
-      ExampleMailer.sample_email().deliver_now
-    end
     order.save!
+    if order.save
+      ExampleMailer.sample_email(order).deliver_now
+    end
     order
   end
 

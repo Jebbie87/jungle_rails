@@ -3,9 +3,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi Jeffrey</h1>
-    <p>
-      Sample mail sent using smtp.
-    </p>
+    <h1>Hi there Jungler</h1>
+    <p>I see that you have placed an order with us! I thank you for purchasing stuff from this Jungle!</p>
+    <br>
+    <p>Here are the details of your order:</p>
+    <ul>
+      <% @order.line_items.each do |p| %>
+      <li><%= p.product.name %> x <%= p.quantity %> = <%= number_to_currency (p.item_price_cents * p.quantity).to_f / 100, unit: '$' %></li>
+      <% end %>
+    </ul>
+
+    <p>The total of cost of your order is: <%= number_to_currency @order.total_cents.to_f / 100, unit: '$' %></p>
+    <br>
+    <p>I hope you had a good time on our site. Please be sure to come back and Jungle it up again!</p>
   </body>
 </html>
