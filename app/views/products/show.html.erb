@@ -8,18 +8,10 @@
 
     <div class="row">
     <%= form_for [@product, @review] do |f| %>
-      <% f.text_area :description %>
-      <% f.select :rating, [1, 2, 3, 4, 5] %>
-      <% f.submit %>
+      <%= f.text_area :description %>
+      <%= f.select :rating, [1, 2, 3, 4, 5] %>
+      <%= f.submit %>
     <% end %>
-      <div class="row">
-        <h3>Comments</h3>
-        <% @product.reviews.each do |r| %>
-          <% if r.description != nil %>
-            <div><strong><%= r.user.first_name %> <%= r.user.last_name %></strong>: <%= r.description %>.....Rating: <%= r.rating %></div>
-          <% end %>
-        <% end %>
-      </div>
 
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
@@ -36,6 +28,14 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+      <div class="row">
+        <h3>Comments</h3>
+        <% @product.reviews.each do |r| %>
+          <% if r.description != nil %>
+            <div><strong><%= r.user.first_name %> <%= r.user.last_name %></strong>: <%= r.description %>.....Rating: <%= r.rating %></div>
+          <% end %>
+        <% end %>
+      </div>
       </div>
 
     </div>
