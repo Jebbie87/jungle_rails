@@ -1,30 +1,70 @@
+<div class="container">
+  <div class="row main">
+    <div class="panel-heading">
+             <div class="panel-title text-center">
+                <h1 class="title">Jungle</h1>
+                <hr />
+              </div>
+          </div>
+    <div class="main-login main-center">
+      <%= form_for :user, url: '/users', class: "form-horizontal" do |f| %>
+        <div class="form-group">
+          <label for="first-name" class="cols-sm-2 control-label">Your first name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+          <%= f.text_field :first_name, class: "form-control", id: "first-name", placeholder: "Enter your first name" %>
+            </div>
+          </div>
+        </div>
 
-<%= form_for :user, url: '/users' do |f| %>
+        <div class="form-group">
+          <label for="last-name" class="cols-sm-2 control-label">Your last name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <%= f.text_field :last_name, class: "form-control", id: "last-name", placeholder: "Enter your last name" %>
+            </div>
+          </div>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+        <div class="form-group">
+          <label for="username" class="cols-sm-2 control-label">Your Email</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <%= f.text_field :email, class: "form-control", id: "email", placeholder: "Enter your email" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password, class: "form-control", id: "password", placeholder: "Enter your password" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password_confirmation, class: "form-control", id: "confirm", placeholder: "Confirm your password" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group ">
+          <%= f.submit 'Register here', class: 'btn btn-primary btn-lg btn-block login-button' %>
+        </div>
+    <% end %>
+        <div class="login-register">
+          <%= link_to 'Login here', new_session_url %>
+        </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <%= f.submit 'Register here', class: 'btn btn-primary' %>
-<% end %>
+</div>

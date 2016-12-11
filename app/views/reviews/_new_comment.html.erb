@@ -3,10 +3,10 @@
   <div class="row">
     <div class="col-md-6 text-box">
       <div class="widget-area no-padding blank">
-        <h3>Comment</h3>
+        <h3>New Review</h3>
         <div class="status-upload">
           <%= form_for [@product, @review] do |f| %>
-            <%= text_area_tag :description, "", placeholder: "Write a review here" %>
+            <%= text_area_tag :description, "", placeholder: "Write a review here(optional)" %>
               <%= f.submit 'Review it', class: "btn btn-success green" %>
               <%= f.select :rating, [1, 2, 3, 4, 5] %>
           <% end %>
@@ -21,9 +21,9 @@
       <tr>
         <th>User</th>
         <th>Review</th>
-        <th style="width:468px; height:20px;">Comment</th>
-        <% if current_user %>
-        <th style="padding-left:20px;">Remove review</th>
+        <th class="comment-row">Comment</th>
+        <% if current_user.reviews.count === 0 || current_user %>
+        <th class="remove-header">Remove your review</th>
         <% end %>
       </tr>
 
@@ -31,7 +31,7 @@
       <tr>
         <td><%= r.user.first_name %></td>
         <td>
-          <% 0.upto(r.rating - 1) do || %>
+          <% 0.upto(r.rating - 1) do %>
             <i class="fa fa-thumbs-up" aria-hidden="true"</i>
           <% end %>
         </td>

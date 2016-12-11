@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
   def current_user?
     if !current_user
-      redirect_to "/sessions/new"
+      redirect_to new_session_url
     end
   end
 end
