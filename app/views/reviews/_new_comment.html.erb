@@ -1,15 +1,48 @@
-<% if current_user %>
-  <%= form_for [@product, @review] do |f| %>
-    <%= f.text_area :description %>
-    <%= f.select :rating, [1, 2, 3, 4, 5] %>
-    <%= f.submit 'Review' %>
-  <% end %>
-<% end %>
-<div class="row">
-  <h3>Comments</h3>
-  <% @product.reviews.each do |r| %>
-    <% if r.description != nil %>
-      <div><strong><%= r.user.first_name %> <%= r.user.last_name %></strong>: <%= r.description %>.....Rating: <%= r.rating %></div>
-    <% end %>
-  <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 text-box">
+      <div class="widget-area no-padding blank">
+        <h3>Comment</h3>
+        <div class="status-upload">
+          <%= form_for [@product, @review] do |f| %>
+            <%= text_area_tag :description, "", placeholder: "Write a review here" %>
+              <%= f.submit 'Review it', class: "btn btn-success green" %>
+              <%= f.select :rating, [1, 2, 3, 4, 5] %>
+          <% end %>
+        </div><!-- Status Upload  -->
+      </div><!-- Widget Area -->
+    </div>
+  </div>
 </div>
+<div class="row">
+  <h3>User Reviews</h3>
+    <table class="user-review-table">
+      <tr>
+        <th>User</th>
+        <th>Review</th>
+        <th style="width:468px; height:20px;">Comment</th>
+        <% if current_user %>
+        <th style="padding-left:20px;">Remove review</th>
+        <% end %>
+      </tr>
+
+  <% @product.reviews.each do |r| %>
+      <tr>
+        <td><%= r.user.first_name %></td>
+        <td>
+          <% 0.upto(r.rating - 1) do || %>
+            <i class="fa fa-thumbs-up" aria-hidden="true"</i>
+          <% end %>
+        </td>
+        <td><%= r.description %></td>
+
+     <% if current_user.id === r.user_id %>
+<td><%= link_to fa_icon('minus-square'), product_review_path(product_id: @product.id, id: r.id), class: 'btn btn-sm btn-danger button-box', method: :delete %></td>
+
+      </tr>
+     <% end %> <!-- ends the if statement -->
+  <% end %> <!-- ends the each method -->
+    </table>
+</div> <!-- ends the class="row" on top of the User reviews string -->
+
