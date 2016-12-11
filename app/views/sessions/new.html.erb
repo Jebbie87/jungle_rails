@@ -1,3 +1,4 @@
+
 <div class="container">
   <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-info" >
@@ -17,13 +18,15 @@
 
               <div style="margin-bottom: 25px" class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <%= text_field_tag :password, "", id: "login-password", class: "form-control", placeholder: "Enter your password here" %>
+                <%= password_field_tag :password, "", id: "login-password", class: "form-control", placeholder: "Enter your password here" %>
               </div>
 
               <div style="margin-top:10px" class="form-group">
                 <!-- Login Button -->
                 <div class="col-sm-12 controls">
                   <%= submit_tag 'Enter the Jungle', class: "btn btn-success" %>
+                <!-- <button class="btn btn-success">Register</button> -->
+                <%= link_to 'Register', new_user_url, class: "btn btn-success", style: "float:right;" %>
                 </div>
               </div>
             <% end %>
@@ -32,3 +35,4 @@
     </div>
   </div>
 </div>
+

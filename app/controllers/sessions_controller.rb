@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+  def initialize
+    @errors = ActiveModel::Errors.new(self)
+  end
+
   def new
   end
 
@@ -10,11 +14,13 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      redirect_to new_session_url
+      # session.errors.add(:)
+      redirect_to new_session_url, :error => "test error message"
     end
   end
 
   def destroy
+    cart = nil
     session[:user_id] = nil
     redirect_to new_session_url
   end

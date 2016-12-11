@@ -14,7 +14,7 @@
         <li><%= link_to 'Home', :root %></li>
 
         <% if current_user %>
-          <p class="signed-in">Signed in as <%= current_user.email %></p>
+          <li class="signed-in">Signed in as <%= current_user.email %></li>
           <li><%= link_to 'Logout', logout_url %></li>
         <% else %>
           <li><%= link_to 'Register', new_user_url %></li>
