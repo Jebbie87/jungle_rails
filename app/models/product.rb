@@ -12,7 +12,9 @@ class Product < ActiveRecord::Base
   validates :category, presence: true
 
   def average_review
-    self.reviews.sum(:rating) / self.reviews.count
+    if self.reviews.count > 0
+      self.reviews.sum(:rating) / self.reviews.count
+    end
   end
 
 end
