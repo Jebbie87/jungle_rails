@@ -11,6 +11,10 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def average_review
+    self.reviews.sum(:rating) / self.reviews.count
+  end
+
 end
 
 # create_table :products do |t|

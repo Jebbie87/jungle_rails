@@ -23,6 +23,7 @@
           <dt>Price:</dt>
           <dd><%= @product.price %></dd>
           <dt>Ratings:</dt>
+          <dd><%= @product.average_review %></dd>
         </dl>
       </div>
       <%= render 'reviews/new_review' %>

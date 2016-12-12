@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def initialize
-    @errors = ActiveModel::Errors.new(self)
-  end
-
   def new
   end
 

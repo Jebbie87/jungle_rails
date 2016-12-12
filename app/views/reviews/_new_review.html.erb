@@ -36,11 +36,11 @@
         </td>
         <td><%= r.description %></td>
      <% if current_user %>
-     <% if current_user.id === r.user_id %>
+      <% if current_user.id === r.user_id %>
 <td><%= link_to fa_icon('minus-square'), product_review_path(product_id: @product.id, id: r.id), class: 'btn btn-sm btn-danger button-box', method: :delete %></td>
 
       </tr>
-     <% end %> <!-- ends the if statement -->
+      <% end %> <!-- ends the if statement -->
     <% end %>
   <% end %> <!-- ends the each method -->
     </table>
