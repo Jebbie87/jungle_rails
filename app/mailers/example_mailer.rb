@@ -3,6 +3,6 @@ class ExampleMailer < ApplicationMailer
 
   def sample_email(order)
     @order = order
-    mail(:to => 'jeffreychang1987@hotmail.com', :subject => "Order details for order id: ##{order.id}")
+    mail(:to => order.email, :subject => "Order details for order id: ##{order.id}")
   end
 end
