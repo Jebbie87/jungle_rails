@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
+RSpec.feature "Visitor adds item to cart by clicking the add button on home page", type: :feature, js: true do
 
   # SETUP
   before :each do
@@ -27,30 +27,23 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     end
   end
 
-  scenario "They see all products" do
+  scenario "They click add button and the nav bar cart increase count by one" do
     # ACT
     visit root_path
 
     #user should click on the add button on home page
-    # click_link('shopping-cart')
-    # page.find('.btn-primary').click
-    # puts page
-    # puts page.html
     find_link('Add', :href => add_item_cart_path(product_id: 12)).click
     find_link('Add', :href => add_item_cart_path(product_id: 10)).click
     find_link('Add', :href => add_item_cart_path(product_id: 9)).click
     find_link('Add', :href => add_item_cart_path(product_id: 1)).click
 
-    # click_link
     puts page.html
-    #the my cart number should go up by one
-
 
     # DEBUG
     save_screenshot
 
     #VERIFY
-    # expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_content 'My Cart(4)'
   end
 
 end
