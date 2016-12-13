@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ProductImageUploader
 
   belongs_to :category
-  has_many :reviews, -> { order(created_at: :desc) }
+  has_many :reviews, -> { order(created_at: :desc) }, dependent: :destroy
 
   validates :name, presence: true
   validates :price, presence: true
