@@ -14,6 +14,8 @@ class Product < ActiveRecord::Base
   def average_review
     if self.reviews.count > 0
       self.reviews.sum(:rating) / self.reviews.count
+    else
+      'No ratings just yet!'
     end
   end
 
