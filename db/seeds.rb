@@ -140,14 +140,16 @@ user1 = User.create!({
   first_name: 'Jebbie',
   last_name: 'Chang',
   email: 'jebbie@chang.com',
-  password: 'test'
+  password: 'testing',
+  password_confirmation: 'testing'
 })
 
 user2 = User.create!({
   first_name: 'Jeff',
   last_name: 'Chang',
   email: 'jeff@chang.com',
-  password: 'test'
+  password: 'test',
+  password_confirmation: 'testing'
 })
 
 ## Reviews
