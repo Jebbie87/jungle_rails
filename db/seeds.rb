@@ -148,8 +148,8 @@ user2 = User.create!({
   first_name: 'Jeff',
   last_name: 'Chang',
   email: 'jeff@chang.com',
-  password: 'test',
-  password_confirmation: 'testing'
+  password: 'password',
+  password_confirmation: 'password'
 })
 
 ## Reviews
