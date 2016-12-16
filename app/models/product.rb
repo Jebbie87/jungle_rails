@@ -19,6 +19,14 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def is_sold_out?
+    if self.quantity === 0
+      true
+    else
+      false
+    end
+  end
+
 end
 
 # create_table :products do |t|
