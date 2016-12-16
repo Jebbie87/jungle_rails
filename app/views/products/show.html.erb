@@ -21,19 +21,23 @@
           <dt>Quantity:</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price:</dt>
-          <dd><%= @product.price %></dd>
+          <dd><%= number_to_currency @product.price %></dd>
           <dt>Ratings:</dt>
           <dd><%= @product.average_review %></dd>
         </dl>
       </div>
       <div class="col-md-6 text-box">
         <div class="widget-area no-padding blank">
+            <% if current_user %>
           <h3>New Review</h3>
           <div class="status-upload">
-            <%= form_for [@product, @review] do |f| %>
-              <%= text_area_tag :description, "", placeholder: "Write a review here(optional)" %>
+              <%= form_for [@product, @review] do |f| %>
+                <%= text_area_tag :description, "", placeholder: "Write a review here(optional)" %>
                 <%= f.submit 'Review it', class: "btn btn-success green" %>
                 <%= f.select :rating, [1, 2, 3, 4, 5] %>
+              <% end %>
+              <% else %>
+          <h3> Login to leave a review for this product </h3>
             <% end %>
           </div><!-- Status Upload  -->
         </div><!-- Widget Area -->
