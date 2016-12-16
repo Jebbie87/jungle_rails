@@ -152,6 +152,14 @@ user2 = User.create!({
   password_confirmation: 'password'
 })
 
+user3 = User.create!({
+  first_name: 'test',
+  last_name: 'test',
+  email: 'test@test.com',
+  password: 'password',
+  password_confirmation: 'password'
+})
+
 ## Reviews
 
 Review.destroy_all
